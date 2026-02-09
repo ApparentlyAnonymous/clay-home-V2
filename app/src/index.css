@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Clay Home Studio - Warm Earth Palette */
+    --background: 24 12% 10%;
+    --foreground: 36 30% 94%;
+    --card: 24 10% 13%;
+    --card-foreground: 36 30% 94%;
+    --popover: 24 10% 13%;
+    --popover-foreground: 36 30% 94%;
+    --primary: 36 35% 63%;
+    --primary-foreground: 24 12% 10%;
+    --secondary: 30 25% 44%;
+    --secondary-foreground: 36 30% 94%;
+    --muted: 24 8% 18%;
+    --muted-foreground: 30 12% 58%;
+    --accent: 36 35% 71%;
+    --accent-foreground: 24 12% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 24 8% 22%;
+    --input: 24 8% 22%;
+    --ring: 36 35% 63%;
+    --radius: 0.5rem;
+    
+    /* Custom Colors */
+    --clay-dark: #1a1816;
+    --clay-surface: #2d2a26;
+    --clay-primary: #c4a77d;
+    --clay-secondary: #8b7355;
+    --clay-accent: #d4b896;
+    --clay-text: #f5f0e8;
+    --clay-muted: #a89a8a;
+    --clay-blue: #3d4f5f;
+    --clay-terracotta: #b87d5a;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: auto;
+  }
+  
+  body {
+    @apply bg-[#1a1816] text-[#f5f0e8];
+    font-family: 'Inter', system-ui, sans-serif;
+    overflow-x: hidden;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-weight: 300;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer components {
+  .section-pinned {
+    @apply relative w-screen h-screen overflow-hidden;
+    will-change: transform;
+  }
+  
+  .section-flowing {
+    @apply relative w-full;
+  }
+  
+  .text-gradient {
+    background: linear-gradient(135deg, var(--clay-primary) 0%, var(--clay-accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .btn-primary {
+    @apply px-8 py-3 border border-[#c4a77d] text-[#f5f0e8] bg-transparent
+           transition-all duration-300 ease-out
+           hover:bg-[#c4a77d] hover:text-[#1a1816];
+    font-family: 'Inter', sans-serif;
+    font-size: 0.875rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  
+  .btn-secondary {
+    @apply px-8 py-3 border border-[#a89a8a] text-[#a89a8a] bg-transparent
+           transition-all duration-300 ease-out
+           hover:border-[#f5f0e8] hover:text-[#f5f0e8];
+    font-family: 'Inter', sans-serif;
+    font-size: 0.875rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  
+  .image-cover {
+    @apply absolute inset-0 w-full h-full object-cover;
+  }
+  
+  .overlay-gradient-bottom {
+    background: linear-gradient(to top, rgba(26, 24, 22, 0.85) 0%, rgba(26, 24, 22, 0.4) 40%, transparent 70%);
+  }
+  
+  .overlay-gradient-right {
+    background: linear-gradient(to left, rgba(26, 24, 22, 0.9) 0%, rgba(26, 24, 22, 0.5) 40%, transparent 70%);
+  }
+  
+  .overlay-gradient-left {
+    background: linear-gradient(to right, rgba(26, 24, 22, 0.9) 0%, rgba(26, 24, 22, 0.5) 40%, transparent 70%);
+  }
+  
+  .belief-item {
+    @apply flex items-center gap-4 text-[#f5f0e8];
+  }
+  
+  .belief-item::before {
+    content: '';
+    @apply w-2 h-2 rounded-full bg-[#c4a77d] flex-shrink-0;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .animation-delay-100 {
+    animation-delay: 100ms;
+  }
+  
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+  
+  .animation-delay-300 {
+    animation-delay: 300ms;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1816;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3d3a36;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #c4a77d;
+}
+
+/* Selection */
+::selection {
+  background: rgba(196, 167, 125, 0.3);
+  color: #f5f0e8;
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
